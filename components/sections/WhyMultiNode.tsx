@@ -42,12 +42,12 @@ export default function WhyMultiNode() {
               <div className="grid grid-cols-1 md:grid-cols-[160px_1fr] gap-6 md:gap-12 py-8">
                 <div className="pt-1">
                   {block.label.split("\n").map((line) => (
-                    <span key={line} className="font-mono text-[11px] text-accent tracking-widest uppercase block">
+                    <span key={line} className="font-mono text-sm text-accent tracking-widest uppercase block">
                       {line}
                     </span>
                   ))}
                 </div>
-                <p className="text-[15px] text-text-secondary leading-[1.75]">
+                <p className="text-lg text-text-secondary leading-[1.75]">
                   {block.text}
                 </p>
               </div>
@@ -68,7 +68,7 @@ export default function WhyMultiNode() {
 
       <FadeInOnScroll delay={0.4} className="mt-12">
         <div className="border-l-2 border-accent pl-6 py-2">
-          <p className="font-sans text-[16px] font-[400] text-text-primary leading-[1.75]">
+          <p className="font-sans text-lg font-[400] text-text-primary leading-[1.75]">
             This is why we evolved SilentRaven from handheld to a multi-node, passive, on-premise network. It reflects what sites like yours actually need, not what a handheld datasheet can deliver.
           </p>
         </div>

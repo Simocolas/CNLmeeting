@@ -65,7 +65,7 @@ export default function EngagementPath() {
                 <p className="font-sans font-[400] text-[17px] text-text-primary mb-2">
                   {step.title}
                 </p>
-                <p className="font-sans text-[14px] text-text-secondary leading-[1.75]">
+                <p className="font-sans text-lg text-text-secondary leading-[1.75]">
                   {step.description}
                 </p>
               </div>
@@ -88,7 +88,7 @@ export default function EngagementPath() {
                 <p className="font-sans font-[400] text-[17px] text-text-primary mb-2">
                   {step.title}
                 </p>
-                <p className="font-sans text-[14px] text-text-secondary leading-[1.75]">
+                <p className="font-sans text-lg text-text-secondary leading-[1.75]">
                   {step.description}
                 </p>
               </div>
@@ -98,7 +98,7 @@ export default function EngagementPath() {
 
         <FadeInOnScroll delay={0.2} className="mt-12">
           <div className="border-l-2 pl-6" style={{ borderColor: "rgba(77,212,224,0.3)" }}>
-            <p className="font-sans text-[15px] text-text-secondary leading-[1.75] max-w-[680px]">
+            <p className="font-sans text-lg text-text-secondary leading-[1.75] max-w-[680px]">
               No procurement commitment is required until Phase 1. The first three steps are scoping
               work. Each produces a document you can share internally.
             </p>

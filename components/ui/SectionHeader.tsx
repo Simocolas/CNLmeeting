@@ -16,7 +16,7 @@ export default function SectionHeader({ number, title, subtitle }: Props) {
         {title}
       </h2>
       {subtitle && (
-        <p className="font-sans text-[18px] text-text-secondary max-w-[640px] leading-[1.7]">
+        <p className="font-sans text-xl text-text-secondary max-w-[640px] leading-[1.7]">
           {subtitle}
         </p>
       )}

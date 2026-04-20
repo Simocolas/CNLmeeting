@@ -61,7 +61,7 @@ export default function CommercialModel() {
         <FadeInOnScroll>
           {/* Desktop table */}
           <div className="hidden md:block">
-            <p className="font-mono text-[11px] text-accent tracking-[0.25em] mb-8 text-center opacity-70">
+            <p className="font-mono text-sm text-accent tracking-[0.25em] mb-8 text-center opacity-70">
               // STANDARD DEFENSE AND NUCLEAR INDUSTRY PHASING
             </p>
             {/* Header row */}
@@ -72,7 +72,7 @@ export default function CommercialModel() {
               {columns.map((col) => (
                 <span
                   key={col.label}
-                  className="font-mono text-[10px] text-accent tracking-widest uppercase opacity-70"
+                  className="font-mono text-sm text-accent tracking-widest uppercase opacity-70"
                 >
                   {col.label}
                 </span>
@@ -86,16 +86,16 @@ export default function CommercialModel() {
                 className="grid grid-cols-4 gap-4 py-6"
                 style={{ borderBottom: "1px solid rgba(255,255,255,0.05)" }}
               >
-                <div className="font-mono text-[12px] text-text-primary whitespace-pre-line">
+                <div className="font-mono text-sm text-text-primary whitespace-pre-line">
                   {row.phase}
                 </div>
-                <div className="text-[14px] text-text-secondary leading-[1.75]">
+                <div className="text-lg text-text-secondary leading-[1.75]">
                   {row.deliverable}
                 </div>
-                <div className="text-[14px] text-text-secondary leading-[1.75]">
+                <div className="text-lg text-text-secondary leading-[1.75]">
                   {row.pricing}
                 </div>
-                <div className="text-[14px] text-text-secondary leading-[1.75]">
+                <div className="text-lg text-text-secondary leading-[1.75]">
                   {row.gate}
                 </div>
               </div>
@@ -113,7 +113,7 @@ export default function CommercialModel() {
                 }}
                 className="p-6"
               >
-                <p className="font-mono text-[12px] text-text-primary whitespace-pre-line mb-4">
+                <p className="font-mono text-sm text-text-primary whitespace-pre-line mb-4">
                   {row.phase}
                 </p>
                 {columns.slice(1).map((col) => (
@@ -121,7 +121,7 @@ export default function CommercialModel() {
                     <p className="font-mono text-[10px] text-accent tracking-widest uppercase opacity-70 mb-1">
                       {col.label}
                     </p>
-                    <p className="text-[14px] text-text-secondary leading-[1.75]">
+                    <p className="text-lg text-text-secondary leading-[1.75]">
                       {row[col.key]}
                     </p>
                   </div>
@@ -140,10 +140,10 @@ export default function CommercialModel() {
             }}
             className="p-7"
           >
-            <p className="font-mono text-[10px] text-accent tracking-widest uppercase mb-4">
+            <p className="font-mono text-sm text-accent tracking-widest uppercase mb-4">
               IP OWNERSHIP
             </p>
-            <p className="text-[14px] text-text-secondary leading-[1.75]">
+            <p className="text-lg text-text-secondary leading-[1.75]">
               Altivion retains all background IP including the RID parsing engine, DJI model
               classifier, multi-node de-duplication algorithm, and the integration software stack.
               CNL-funded customization results in joint foreground IP per the Phase 1 agreement. All

@@ -43,7 +43,7 @@ export default function QuestionsForCNL() {
 
       <div className="mt-14">
         <FadeInOnScroll>
-          <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-12">
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 mb-12 items-stretch">
             {cards.map((card, index) => (
               <div
                 key={card.title}
@@ -51,14 +51,14 @@ export default function QuestionsForCNL() {
                   background: "#111829",
                   border: "1px solid rgba(77,212,224,0.15)",
                 }}
-                className={`p-7 ${index === 1 ? "lg:mt-10" : ""}`}
+                className="p-7 h-full flex flex-col"
               >
-                <p className="font-mono text-[11px] text-accent tracking-widest uppercase mb-5">
+                <p className="font-mono text-sm text-accent tracking-widest uppercase mb-5">
                   {card.title}
                 </p>
-                <ul className="space-y-3">
+                <ul className="flex-grow space-y-3">
                   {card.questions.map((q) => (
-                    <li key={q} className="text-[14px] text-text-secondary leading-loose">
+                    <li key={q} className="text-lg text-text-secondary leading-loose">
                       <span className="text-accent mr-2 opacity-60">·</span>
                       {q}
                     </li>
