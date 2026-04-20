@@ -224,7 +224,7 @@ export default function Hero() {
               textShadow: TEXT_SHADOW,
             }}
           >
-            Illustrative coverage zones. Actual detection range varies by drone class, RF profile, terrain, and environmental conditions.
+            Node positions based on open-source satellite imagery — a working estimate for this discussion. Actual range, count, and placement will be scoped to your site.
           </motion.p>
         </div>
       </div>

@@ -288,7 +288,7 @@ export default function HowItWorks() {
         <SectionHeader
           number="03"
           title="How SilentRaven Works"
-          subtitle="Passive detection. Local processing. Air-gap capable. Canadian-designed, Canadian IP, Canadian integration."
+          subtitle="Passive RF detection, processed entirely on-site. No cloud dependency. Designed and built in Canada."
         />
       </FadeInOnScroll>
 

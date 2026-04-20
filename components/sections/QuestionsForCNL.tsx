@@ -38,7 +38,7 @@ export default function QuestionsForCNL() {
       <SectionHeader
         number="04"
         title="What We Need to Understand From You"
-        subtitle="To scope a representative deployment, these are the dimensions we need to align on. We don't expect answers to all of these today."
+        subtitle="To scope a real deployment, we need to understand these. We don't expect answers to all of them today."
       />
 
       <div className="mt-14">
@@ -71,8 +71,7 @@ export default function QuestionsForCNL() {
 
         <FadeInOnScroll delay={0.2}>
           <p className="font-sans text-[15px] text-text-secondary leading-relaxed max-w-[700px]">
-            These questions define the shape of a serious scoping engagement. Some you may answer in
-            the meeting. Some will require input from colleagues not in the room. Both are expected.
+            Some of these you&apos;ll answer today. Some will need colleagues who aren&apos;t in the room. That&apos;s expected.
           </p>
         </FadeInOnScroll>
       </div>

@@ -54,7 +54,7 @@ export default function CommercialModel() {
       <SectionHeader
         number="06"
         title="Commercial Model"
-        subtitle="Phased delivery. Clear acceptance gates. Standard defense and nuclear industry structure."
+        subtitle="Standard phased structure — you only commit to the next step."
       />
 
       <div className="mt-14">

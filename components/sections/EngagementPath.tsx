@@ -43,7 +43,7 @@ export default function EngagementPath() {
       <SectionHeader
         number="05"
         title="Proposed Engagement Path"
-        subtitle="A stepwise path that respects internal process."
+        subtitle="Built around your internal gates, not ours."
       />
 
       <div className="mt-14">
