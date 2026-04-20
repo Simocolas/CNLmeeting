@@ -250,13 +250,10 @@ const supplyChips = [
     sub: "Ettus Research USRP B210 SDR front-end (Analog Devices / NI)",
   },
   {
-    dotClass: "",
-    dotStyle: {
-      background: "rgba(138,146,168,0.3)",
-      border: "1px solid rgba(255,255,255,0.2)",
-    },
-    label: "No Chinese-sourced components",
-    sub: "In detection, compute, or communications path",
+    dotClass: "bg-accent",
+    dotStyle: {},
+    label: "Controlled supply chain",
+    sub: "Detection, compute, and communications components sourced exclusively from Canada, US, and allied nations",
   },
 ];
 
