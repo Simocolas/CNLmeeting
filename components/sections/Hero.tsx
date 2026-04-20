@@ -4,43 +4,37 @@ import Image from "next/image"
 import { motion, useReducedMotion } from "framer-motion"
 import { HERO_NODES } from "@/lib/hero-nodes"
 
+const TEXT_SHADOW = "0 2px 24px rgba(10,14,26,1), 0 0 48px rgba(10,14,26,0.85), 0 0 80px rgba(10,14,26,0.5)"
+
 export default function Hero() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
     <section className="relative w-full overflow-hidden" style={{ height: "100vh", minHeight: "100vh" }}>
 
-      {/* ── Layer 1: Map image — atmospheric, heavily receded ── */}
-      <div className="absolute inset-0">
+      {/* ── Layer 1: Map image ── */}
+      <div className="absolute inset-0" style={{ zIndex: 0 }}>
         <Image
           src="/chalk-river-map.jpg"
           alt="Satellite view of Chalk River Laboratories site"
           fill
           priority
           className="object-cover"
-          style={{ opacity: 0.45, filter: "saturate(0.18) contrast(1.30) blur(1px)" }}
+          style={{ opacity: 0.70, filter: "saturate(0.20) contrast(1.35) blur(1px)" }}
           onError={() => console.error("Hero: chalk-river-map.jpg failed to load — check public/ directory")}
         />
       </div>
 
       {/* ── Layer 2: Dark base overlay ── */}
-      <div className="absolute inset-0" style={{ background: "rgba(10,14,26,0.62)" }} />
+      <div className="absolute inset-0" style={{ zIndex: 1, background: "rgba(10,14,26,0.55)" }} />
 
-      {/* ── Layer 3: Left-to-right gradient (desktop) — near-solid left, fade right ── */}
+      {/* ── Layer 3: Radial gradient — focus on facility center ── */}
       <div
-        className="absolute inset-0 pointer-events-none hidden lg:block"
+        className="absolute inset-0 pointer-events-none"
         style={{
+          zIndex: 10,
           background:
-            "linear-gradient(to right, rgba(10,14,26,0.88) 0%, rgba(10,14,26,0.70) 25%, rgba(10,14,26,0.40) 55%, rgba(10,14,26,0.15) 85%, rgba(10,14,26,0.05) 100%)",
-        }}
-      />
-
-      {/* ── Mobile: top-to-bottom gradient ── */}
-      <div
-        className="absolute inset-0 pointer-events-none lg:hidden"
-        style={{
-          background:
-            "linear-gradient(to bottom, rgba(10,14,26,0.96) 0%, rgba(10,14,26,0.80) 40%, rgba(10,14,26,0.45) 70%, rgba(10,14,26,0.15) 100%)",
+            "radial-gradient(circle at 72% 48%, rgba(10,14,26,0) 0%, rgba(10,14,26,0.10) 22%, rgba(10,14,26,0.40) 45%, rgba(10,14,26,0.75) 68%, rgba(10,14,26,0.92) 85%, rgba(10,14,26,1) 100%)",
         }}
       />
 
@@ -49,7 +43,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         width="100%"
         height="100%"
-        style={{ zIndex: 10 }}
+        style={{ zIndex: 20 }}
         xmlns="http://www.w3.org/2000/svg"
       >
         {HERO_NODES.map((node, index) => {
@@ -59,7 +53,7 @@ export default function Hero() {
 
           return (
             <g key={node.id}>
-              {/* Static detection ring — solid, visible */}
+              {/* Static detection ring */}
               <circle
                 cx={cx}
                 cy={cy}
@@ -90,7 +84,7 @@ export default function Hero() {
                 />
               )}
 
-              {/* Node dot — larger, glowing */}
+              {/* Node dot */}
               <circle
                 cx={cx}
                 cy={cy}
@@ -103,14 +97,9 @@ export default function Hero() {
               />
 
               {/* Inner bright core */}
-              <circle
-                cx={cx}
-                cy={cy}
-                r={2.5}
-                fill="#E0FBFF"
-              />
+              <circle cx={cx} cy={cy} r={2.5} fill="#E0FBFF" />
 
-              {/* Node label — offset right for legibility */}
+              {/* Node label */}
               <text
                 x={`${node.x}%`}
                 y={`${node.y}%`}
@@ -130,8 +119,9 @@ export default function Hero() {
       </svg>
 
       {/* ── Layer 5: Text content ── */}
-      <div className="absolute inset-0 flex items-center" style={{ zIndex: 20 }}>
+      <div className="absolute inset-0 flex items-center" style={{ zIndex: 30 }}>
         <div className="w-full max-w-[700px] px-[5vw] py-24 flex flex-col">
+
           {/* Eyebrow */}
           <motion.p
             initial={{ opacity: 0, y: 14 }}
@@ -142,13 +132,13 @@ export default function Hero() {
               fontSize: "11px",
               letterSpacing: "0.2em",
               color: "#4DD4E0",
-              textShadow: "0 2px 20px rgba(10,14,26,0.9), 0 0 40px rgba(10,14,26,0.6)",
+              textShadow: TEXT_SHADOW,
             }}
           >
             ALTIVION × CANADIAN NUCLEAR LABORATORIES
           </motion.p>
 
-          {/* Headline — dominant */}
+          {/* Headline */}
           <motion.h1
             initial={{ opacity: 0, y: 14 }}
             animate={{ opacity: 1, y: 0 }}
@@ -159,7 +149,7 @@ export default function Hero() {
               color: "#E8ECF2",
               letterSpacing: "-0.02em",
               lineHeight: 0.95,
-              textShadow: "0 2px 20px rgba(10,14,26,0.9), 0 0 40px rgba(10,14,26,0.6)",
+              textShadow: TEXT_SHADOW,
             }}
           >
             Multi-Node Counter-UAS Detection
@@ -175,7 +165,7 @@ export default function Hero() {
               fontSize: "clamp(16px, 1.8vw, 22px)",
               color: "#A8B0C0",
               maxWidth: "500px",
-              textShadow: "0 2px 20px rgba(10,14,26,0.9), 0 0 40px rgba(10,14,26,0.6)",
+              textShadow: TEXT_SHADOW,
             }}
           >
             Designed for nuclear facility environments.
@@ -187,10 +177,7 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6, ease: "easeOut", delay: 0.45 }}
             className="mb-8"
-            style={{
-              maxWidth: "500px",
-              textShadow: "0 2px 20px rgba(10,14,26,0.9), 0 0 40px rgba(10,14,26,0.6)",
-            }}
+            style={{ maxWidth: "500px", textShadow: TEXT_SHADOW }}
           >
             <p className="font-sans text-[15px] leading-[1.7]" style={{ color: "#A8B0C0" }}>
               Prepared for the technical discussion with Stephen Cudmore and James Carr.
@@ -211,7 +198,7 @@ export default function Hero() {
               fontSize: "10px",
               color: "rgba(168,176,192,0.55)",
               maxWidth: "500px",
-              textShadow: "0 2px 20px rgba(10,14,26,0.9), 0 0 40px rgba(10,14,26,0.6)",
+              textShadow: TEXT_SHADOW,
             }}
           >
             <span>2025 IDEaS CUAS Sandbox</span>
@@ -231,7 +218,7 @@ export default function Hero() {
               fontSize: "9px",
               color: "rgba(168,176,192,0.35)",
               maxWidth: "340px",
-              textShadow: "0 2px 20px rgba(10,14,26,0.9), 0 0 40px rgba(10,14,26,0.6)",
+              textShadow: TEXT_SHADOW,
             }}
           >
             Illustrative coverage zones. Actual detection range varies by drone class, RF profile, terrain, and environmental conditions.
@@ -246,7 +233,7 @@ export default function Hero() {
           bottom: "2rem",
           left: "50%",
           transform: "translateX(-50%)",
-          zIndex: 20,
+          zIndex: 30,
           display: "flex",
           flexDirection: "column",
           alignItems: "center",
