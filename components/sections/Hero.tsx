@@ -10,15 +10,25 @@ export default function Hero() {
   const prefersReducedMotion = useReducedMotion()
 
   return (
-    <section className="relative w-full overflow-hidden" style={{ height: "100vh", minHeight: "100vh" }}>
+    <section
+      className="relative w-full h-screen overflow-hidden"
+      style={{
+        contain: "layout paint style",
+        transform: "translateZ(0)",
+        willChange: "transform",
+        isolation: "isolate",
+      }}
+    >
 
       {/* ── Layer 1: Map image ── */}
-      <div className="absolute inset-0" style={{ zIndex: 0 }}>
+      <div className="absolute inset-0" style={{ zIndex: 0, transform: "translateZ(0)", willChange: "transform" }}>
         <Image
           src="/chalk-river-map.jpg"
           alt="Satellite view of Chalk River Laboratories site"
           fill
           priority
+          quality={72}
+          sizes="100vw"
           className="object-cover"
           style={{ opacity: 0.70, filter: "saturate(0.20) contrast(1.35) blur(1px)" }}
           onError={() => console.error("Hero: chalk-river-map.jpg failed to load — check public/ directory")}
@@ -33,6 +43,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         style={{
           zIndex: 10,
+          transform: "translateZ(0)",
           background:
             "radial-gradient(circle at 72% 48%, rgba(10,14,26,0) 0%, rgba(10,14,26,0.10) 22%, rgba(10,14,26,0.40) 45%, rgba(10,14,26,0.75) 68%, rgba(10,14,26,0.92) 85%, rgba(10,14,26,1) 100%)",
         }}
@@ -43,7 +54,7 @@ export default function Hero() {
         className="absolute inset-0 pointer-events-none"
         width="100%"
         height="100%"
-        style={{ zIndex: 20 }}
+        style={{ zIndex: 20, transform: "translateZ(0)" }}
         xmlns="http://www.w3.org/2000/svg"
       >
         {HERO_NODES.map((node, index) => {
@@ -64,25 +75,17 @@ export default function Hero() {
                 strokeOpacity={0.55}
               />
 
-              {/* Pulse ring */}
-              {!prefersReducedMotion && (
-                <motion.circle
-                  cx={cx}
-                  cy={cy}
-                  r={0}
-                  stroke="#4DD4E0"
-                  strokeWidth={1}
-                  fill="none"
-                  animate={{ r: [0, r], opacity: [0.55, 0] }}
-                  transition={{
-                    duration: 4,
-                    ease: "easeOut",
-                    repeat: Infinity,
-                    delay: index * 0.6,
-                    repeatDelay: 0.4,
-                  }}
-                />
-              )}
+              {/* Pulse ring — CSS keyframes, GPU compositor thread */}
+              <circle
+                cx={cx}
+                cy={cy}
+                r={r}
+                fill="none"
+                stroke="#4DD4E0"
+                strokeWidth={1}
+                className="node-pulse"
+                style={{ animationDelay: `${index * 600}ms` }}
+              />
 
               {/* Node dot */}
               <circle
@@ -92,7 +95,7 @@ export default function Hero() {
                 fill="#4DD4E0"
                 style={{
                   filter:
-                    "drop-shadow(0 0 6px rgba(77,212,224,0.9)) drop-shadow(0 0 12px rgba(77,212,224,0.5))",
+                    "drop-shadow(0 0 8px rgba(77,212,224,0.7))",
                 }}
               />
 
