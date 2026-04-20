@@ -39,3 +39,15 @@ body {
 ::selection {
   background: rgba(77, 212, 224, 0.2);
 }
+
+/* FadeInOnScroll — CSS-only, progressive enhancement */
+.fin-hidden {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
+.fin-visible {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+}
