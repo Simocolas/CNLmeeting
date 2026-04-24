@@ -129,7 +129,6 @@ function ArchitectureSVG() {
       {/* Sub-labels */}
       <text x={580} y={178} textAnchor="middle" fontSize={9} fontFamily="var(--font-jetbrains), monospace" fill="#8A92A8">Cross-node de-duplication</text>
       <text x={580} y={190} textAnchor="middle" fontSize={9} fontFamily="var(--font-jetbrains), monospace" fill="#8A92A8">TDOA localization</text>
-      <text x={580} y={202} textAnchor="middle" fontSize={9} fontFamily="var(--font-jetbrains), monospace" fill="#8A92A8">Flight path reconstruction</text>
 
       {/* ══ Stage 4: On-Premise Server (cx=820) ══ */}
       {/* Server rack icon */}
@@ -177,7 +176,7 @@ const mobileStages = [
   },
   {
     title: "Multi-Node Fusion",
-    items: ["Cross-node de-duplication", "TDOA localization", "Flight path reconstruction"],
+    items: ["Cross-node de-duplication", "TDOA localization"],
   },
   {
     title: "On-Premise Server",
@@ -296,9 +295,9 @@ export default function HowItWorks() {
       <FadeInOnScroll delay={0.05} className="mt-16 mb-4">
         <div className="grid grid-cols-3 gap-8 border-y py-10" style={{ borderColor: "rgba(255,255,255,0.06)" }}>
           {[
-            { value: "5", label: "Signal capture to operator output", unit: "stages" },
             { value: "0", label: "From detection to log storage", unit: "cloud calls" },
-            { value: "100%", label: "Every data path", unit: "on-premise" },
+            { value: "5KM", label: "Validated detections only", unit: "detection range" },
+            { value: "0–6GHz", label: "Covers all known drone frequencies", unit: "full-spectrum SDR" },
           ].map((stat) => (
             <div key={stat.unit} className="text-center">
               <p style={{ fontSize: "clamp(48px, 5vw, 72px)", fontWeight: 300, color: "#E8ECF2", lineHeight: 1 }}>
